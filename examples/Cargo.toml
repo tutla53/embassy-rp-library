@@ -29,6 +29,7 @@ cortex-m-rt = "0.7.0"
 
 # Servo Builder Library
 rp2040-servo-pio = {git = "https://github.com/tutla53/embassy-rp-library.git"}
+# rp2040-servo-pio = {path = "../rp2040-servo-pio"}
 
 # Debugging Related
 defmt = "0.3.8"
