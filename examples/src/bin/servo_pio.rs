@@ -47,15 +47,18 @@ async fn main(spawner: Spawner){
         .set_max_degree_rotation(180)
         .set_min_pulse_width(Duration::from_micros(1000))
         .set_max_pulse_width(Duration::from_micros(2000))
+        .set_initial_position(90)
         .build();
 
     servo_motor.stop();
     Timer::after_secs(1).await;
     servo_motor.start();
+    log::info!("Servo_PIO {}", servo_motor.get_current_pos());
+    Timer::after_secs(1).await;
 
     loop {
-        log::info!("Servo_PIO");
-        servo_motor.rotate(90);
+        log::info!("Servo_PIO {}", servo_motor.get_current_pos());
+        servo_motor.rotate(180);
         Timer::after_millis(1).await;
     }
 }
