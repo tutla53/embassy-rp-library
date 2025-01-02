@@ -1,5 +1,4 @@
 //! Servo PWM Builder with PIO
-#![no_std]
 
 use {
     core::time::Duration,
