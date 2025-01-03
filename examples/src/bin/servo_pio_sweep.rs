@@ -59,13 +59,11 @@ async fn main(spawner: Spawner){
 
     loop {
         log::info!("Current Pos {} - Target {}", servo_motor.get_current_pos(), target);
-        log::info!("Waiting the servo sweep....");
-
+        
+        log::info!("Waiting the servo to sweep....");
         servo_motor.sweep(target, 100).await;
-
         log::info!("Servo Sweep is Complete");
-        log::info!("Current Pos {} - Target {}", servo_motor.get_current_pos(), target);
-
+        
         if target == 0 {target = 180;}
         else {target = 0};
 
