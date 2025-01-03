@@ -62,7 +62,7 @@ async fn main(spawner: Spawner){
         
         log::info!("Waiting the servo to sweep....");
         servo_motor.sweep(target, 100).await;
-        log::info!("Servo Sweep is Complete");
+        log::info!("Servo Sweep is Complete\n");
         
         if target == 0 {target = 180;}
         else {target = 0};
