@@ -58,26 +58,17 @@ async fn main(spawner: Spawner){
     let mut target: u64 = 0;
 
     loop {
-        log::info!("Servo_PIO {}", servo_motor.get_current_pos());
+        log::info!("Current Pos {} - Target {}", servo_motor.get_current_pos(), target);
+        log::info!("Waiting the servo sweep....");
 
-        let mut inc: i16 = 1;
-        if servo_motor.get_current_pos() > target {inc = -1}
-    
-        while servo_motor.get_current_pos() != target {
-            let mut new_pos = servo_motor.get_current_pos() as i16 + inc;
-            
-            if new_pos<0 {new_pos = 0;}
-            else if new_pos>180{new_pos = 180;}
-    
-            servo_motor.rotate(new_pos as u64);
-            Timer::after_millis(100).await;
-            log::info!("Servo_PIO {}", servo_motor.get_current_pos());
-        }
+        servo_motor.sweep(target, 100).await;
+
+        log::info!("Servo Sweep is Complete");
+        log::info!("Current Pos {} - Target {}", servo_motor.get_current_pos(), target);
 
         if target == 0 {target = 180;}
         else {target = 0};
 
-        // servo_motor.rotate(90);
         Timer::after_millis(1).await;
     }
 }
