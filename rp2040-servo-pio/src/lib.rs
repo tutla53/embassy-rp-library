@@ -131,7 +131,6 @@ impl<'d, T: Instance, const SM: usize> Servo<'d, T, SM> {
     
             self.rotate(new_pos as u64);
             Timer::after_millis(delay_ms).await;
-            log::info!("Servo_PIO {}", self.current_pos);
         }
     }
 }
