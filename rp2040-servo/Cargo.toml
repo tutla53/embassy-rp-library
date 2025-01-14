@@ -1,0 +1,14 @@
+[package]
+edition = "2021"
+name = "rp2040-servo"
+version = "0.1.0"
+license = "Apache-2.0"
+authors = ["Tutla"]
+repository = "https://github.com/tutla53/embassy-rp-library.git"
+
+[dependencies]
+embassy-rp = {git = "https://github.com/embassy-rs/embassy", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp2040"] }
+embassy-time = {git = "https://github.com/embassy-rs/embassy", features = ["defmt", "defmt-timestamp-uptime"] }
+defmt = "0.3.8"
+defmt-rtt = "0.4.1"
+panic-probe = { version = "0.3", features = ["print-defmt"] }
