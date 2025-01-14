@@ -40,9 +40,9 @@ async fn main(spawner: Spawner){
     let Pio { mut common, sm0, .. } = Pio::new(p.PIO0, Irqs);
     let prg = PioPwmProgram::new(&mut common);
 
-    let servo_motor_pwm = PioPwm::new(&mut common, sm0, p.PIN_10, &prg);
+    let servo_pio_device = PioPwm::new(&mut common, sm0, p.PIN_10, &prg);
 
-    let mut servo_motor = ServoPioBuilder::new(servo_motor_pwm)
+    let mut servo_motor = ServoPioBuilder::new(servo_pio_device)
         .set_period(Duration::from_micros(REFRESH_INTERVAL))
         .set_max_degree_rotation(180)
         .set_min_pulse_width(Duration::from_micros(1000))
