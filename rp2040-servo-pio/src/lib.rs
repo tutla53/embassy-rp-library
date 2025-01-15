@@ -1,5 +1,6 @@
 //! Servo PWM Builder with PIO
 #![no_std]
+#![no_main]
 #![allow(async_fn_in_trait)]
 
 use {

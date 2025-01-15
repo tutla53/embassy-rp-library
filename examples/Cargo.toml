@@ -31,7 +31,6 @@ cortex-m-rt = "0.7.0"
 rp2040-servo-pio = {path = "../rp2040-servo-pio"}
 rp2040-servo = {path = "../rp2040-servo"}
 
-
 # Debugging Related
 defmt = "0.3.8"
 defmt-rtt = "0.4.1"
