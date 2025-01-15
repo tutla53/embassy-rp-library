@@ -1,7 +1,0 @@
-[workspace]
-
-members = [
-    "rp2040-servo",
-    "rp2040-servo-pio",
-    "examples"
-]
