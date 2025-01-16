@@ -119,19 +119,4 @@ impl<'d, T: Instance, const SM: usize> Servo<'d, T, SM> {
         self.set_current_pos(degree);
         self.write_time(duration);
     }
-
-    pub async fn sweep(&mut self, target: u64, delay_ms: u64){
-        let mut inc: i16 = 1;
-        if self.current_pos > target {inc = -1}
-    
-        while self.current_pos != target {
-            let mut new_pos = self.current_pos as i16 + inc;
-            
-            if new_pos<0 {new_pos = 0;}
-            else if new_pos>180{new_pos = 180;}
-    
-            self.rotate(new_pos as u64);
-            Timer::after_millis(delay_ms).await;
-        }
-    }
 }
