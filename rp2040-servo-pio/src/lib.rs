@@ -5,7 +5,6 @@
 
 use {
     core::time::Duration,
-    embassy_time::Timer,
     embassy_rp::{
         pio::Instance,
         pio_programs::pwm::PioPwm,
